@@ -112,9 +112,9 @@
 .gradient {
     background-image: linear-gradient(
         to right,
-        #2f57ef 0%,
-        #c664ff 51%,
-        #c664ff 100%
+        #62cb79 0%,
+        #2E7D32 51%,
+        #2E7D32 100%
     );
     transition: 0.5s;
     background-size: 200% auto;

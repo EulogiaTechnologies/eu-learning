@@ -64,6 +64,28 @@
                 </ul>
             </li>
 
+            <!-- Program -->
+            <li
+                class="sidebar-first-li first-li-have-sub {{ $current_route == 'instructor.programs' || $current_route == 'instructor.program.purchase.history' || $current_route == 'instructor.program.purchase.invoice' || $current_route == 'instructor.program.create' || $current_route == 'instructor.program.edit' || $current_route == 'instructor.program.categories' ? 'active' : '' }}">
+                <a href="javascript:void(0);">
+                    <span class="icon fi fi-sr-users-alt"></span>
+                    <div class="text">
+                        <span>{{ get_phrase('Programs') }}</span>
+                    </div>
+                </a>
+                <ul class="first-sub-menu">
+                    <li class="first-sub-menu-title fs-14px mb-18px">{{ get_phrase('Program') }}</li>
+
+                    <li class="sidebar-second-li @if (($current_route == 'instructor.programs' || $current_route == 'instructor.program.edit') && request('type') == '') active @endif"><a href="{{ route('instructor.programs') }}">{{ get_phrase('Manage Programs') }}</a></li>
+                    <li class="sidebar-second-li @if ($current_route == 'instructor.program.create') active @endif">
+                        <a href="{{ route('instructor.program.create') }}">{{ get_phrase('Add New Program') }}</a>
+                    </li>
+                    <li class="sidebar-second-li {{ $current_route == 'instructor.program.purchase.history' || $current_route == 'instructor.program.purchase.invoice' ? 'active' : '' }}">
+                        <a href="{{ route('instructor.program.purchase.history') }}">{{ get_phrase('Purchase History') }}</a>
+                    </li>
+                </ul>
+            </li>
+
 
             {{-- <li class="sidebar-first-li first-li-have-sub @if ($current_route == 'instructor.team.packages' || $current_route == 'instructor.team.packages.create' || $current_route == 'instructor.team.packages.edit' || $current_route == 'instructor.team.packages.purchase.history' || $current_route == 'instructor.team.packages.purchase.invoice') active showMenu @endif">
                 <a href="javascript:void(0);">

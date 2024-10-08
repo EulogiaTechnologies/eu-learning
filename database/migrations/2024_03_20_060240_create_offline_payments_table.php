@@ -8,21 +8,23 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void {
+    public function up()
+    {
         Schema::create('offline_payments', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id')->nullable();
-            $table->string('items', 255)->nullable();
-            $table->float('tax', 10, 2)->nullable();
-            $table->float('total_amount', 10, 2)->nullable();
-            $table->string('phone_on', 255)->nullable();
-            $table->string('bank_no', 255)->nullable();
-            $table->string('doc', 255)->nullable();
+            $table->id(); // Auto-incrementing ID
+            $table->unsignedBigInteger('user_id')->nullable(); // Assuming user_id is related to a users table
+            $table->string('item_type')->nullable();
+            $table->string('items')->nullable();
+            $table->double('tax')->nullable();
+            $table->double('total_amount')->nullable();
+            $table->string('coupon')->nullable();
+            $table->string('phone_no')->nullable();
+            $table->string('bank_no')->nullable();
+            $table->string('doc')->nullable();
             $table->integer('status')->default(0);
-            $table->timestamps();
+            $table->timestamps(); // This creates 'created_at' and 'updated_at' columns
         });
     }
-
     /**
      * Reverse the migrations.
      */

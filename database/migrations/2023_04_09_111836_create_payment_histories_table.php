@@ -10,23 +10,22 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('payment_histories', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->integer('course_id', 255)->nullable();
-            $table->string('payment_type', 255)->nullable();
-            $table->float('amount', 10, 2)->nullable();
-            $table->float('admin_revenue', 10, 2)->nullable();
-            $table->float('instructor_revenue', 10, 2)->nullable();
-            $table->float('tax', 10, 2)->nullable();
-            $table->string('coupon', 255)->nullable();
-            $table->string('invoice', 255)->nullable();
-            $table->integer('instructor_payment_status', 255)->nullable();
-            $table->string('transaction_id', 255)->nullable();
-            $table->string('session_id', 255)->nullable();
-            $table->timestamps();
-        });
+    {Schema::create('payment_histories', function (Blueprint $table) {
+        $table->id(); // Creates an auto-incrementing BIGINT id
+        $table->unsignedBigInteger('user_id')->nullable();
+        $table->unsignedBigInteger('course_id')->nullable(); // Use unsignedBigInteger for course_id
+        $table->string('payment_type', 255)->nullable();
+        $table->float('amount')->nullable(); // Precision/scale not needed
+        $table->float('admin_revenue')->nullable(); // Precision/scale not needed
+        $table->float('instructor_revenue')->nullable(); // Precision/scale not needed
+        $table->float('tax')->nullable(); // Precision/scale not needed
+        $table->string('coupon', 255)->nullable();
+        $table->string('invoice', 255)->nullable();
+        $table->integer('instructor_payment_status')->nullable(); // Use integer without size
+        $table->string('transaction_id', 255)->nullable();
+        $table->string('session_id', 255)->nullable();
+        $table->timestamps(); // This will create created_at and updated_at columns
+    });
     }
 
     /**

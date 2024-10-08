@@ -9,17 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
-            $table->id();
-            $table->morphs('tokenable');
-            $table->string('name');
-            $table->string('token', 64)->unique();
-            $table->text('abilities')->nullable();
-            $table->timestamp('last_used_at')->nullable();
-            $table->timestamp('expires_at')->nullable();
-            $table->timestamps();
+            $table->id(); // Primary key as big integer, auto-increment
+            $table->string('tokenable_type'); // Type of the related model
+            $table->unsignedBigInteger('tokenable_id'); // ID of the related model
+            $table->string('name'); // Name of the token
+            $table->string('token', 64); // Token value (up to 64 characters)
+            $table->text('abilities')->nullable(); // Token abilities as text
+            $table->timestamp('last_used_at')->nullable(); // Timestamp of when token was last used
+            $table->timestamp('expires_at')->nullable(); // Timestamp for token expiration
+            $table->timestamps(); // Automatically adds 'created_at' and 'updated_at'
         });
     }
 

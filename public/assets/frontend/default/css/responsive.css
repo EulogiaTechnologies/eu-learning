@@ -23,7 +23,7 @@
         left: -550px;
         height: 100vh;
         background: var(--bg-white);
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        box-shadow: rgba(14, 190, 102, 0.2) 0px 7px 29px 0px;
         top: 0;
         width: 398px;
         z-index: 999;
@@ -148,7 +148,7 @@
         max-width: 400px;
         margin: auto;
         margin-bottom: 30px;
-        border: 1px solid #C664FF;
+        border: 1px solid #2E7D32;
     }
 
     .gradient-border {

@@ -12,17 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('quizzes', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('course_id');
-            $table->string('section_id', 255)->nullable();
-            $table->integer('duration', 255)->nullable();
-            $table->integer('num_questions', 255)->nullable();
-            $table->integer('total_mark', 255)->nullable();
-            $table->integer('pass_mark', 255)->nullable();
-            $table->integer('drip_rule', 255)->nullable();
-            $table->integer('summary', 255)->nullable();
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent();
+            $table->increments('id');
+            $table->integer('user_id')->nullable();
+            $table->string('title', 255)->nullable();
+            $table->integer('section_id')->nullable();
+            $table->string('duration', 255)->nullable();
+            $table->integer('total_mark')->nullable();
+            $table->integer('pass_mark')->nullable();
+            $table->integer('drip_rule')->nullable();
+            $table->longText('summary')->nullable();
+            $table->longText('attempts')->nullable();
+            $table->integer('sort')->nullable();
+            $table->timestamps(); //
         });
     }
 

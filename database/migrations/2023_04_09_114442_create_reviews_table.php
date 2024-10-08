@@ -9,13 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+            $table->increments('id')->unsigned();
+            $table->integer('user_id')->nullable();
+            $table->integer('course_id')->nullable();
+            $table->integer('rating')->nullable();
+            $table->string('review_type')->nullable();
+            $table->longText('review')->nullable();
+            $table->timestamps(); // This includes both created_at and updated_at fields
+        });}
 
     /**
      * Reverse the migrations.

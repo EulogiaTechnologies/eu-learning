@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('languages', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('direction');
-            $table->timestamps();
+            $table->bigIncrements('id'); // Creates an auto-incrementing BIGINT id
+            $table->string('name', 255)->collate('utf8mb4_unicode_ci')->notNullable(); // Language name
+            $table->string('direction', 255)->collate('utf8mb4_unicode_ci')->notNullable(); // Text direction (e.g., left-to-right, right-to-left)
+            $table->timestamps(); // Automatically adds created_at and updated_at columns
         });
     }
 

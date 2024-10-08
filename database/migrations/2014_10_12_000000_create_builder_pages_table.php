@@ -9,17 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('builder_pages', function (Blueprint $table) {
-            $table->id();
-            $table->integer('is_permanent')->nullable();
-            $table->bigInteger('edit_home_id')->nullable();
-            $table->string('identifier')->nullable();
-            $table->string('name')->nullable();
-            $table->longText('html')->nullable();
-            $table->integer('status')->nullable();
-            $table->timestamps();
+            $table->id(); // Creates an auto-incrementing primary key named 'id'
+            $table->string('name')->nullable(); // varchar(255) DEFAULT NULL
+            $table->longText('html')->nullable(); // longtext
+            $table->string('identifier')->nullable(); // varchar(255) DEFAULT NULL
+            $table->integer('is_permanent')->nullable(); // int(11) DEFAULT NULL
+            $table->integer('status')->nullable(); // int(11) DEFAULT NULL
+            $table->integer('edit_home_id')->nullable(); // int(11) DEFAULT NULL
+            $table->timestamps(); // created_at and updated_at
+
         });
     }
 

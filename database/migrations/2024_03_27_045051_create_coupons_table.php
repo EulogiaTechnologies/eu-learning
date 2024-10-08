@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coupons', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id', 255)->nullable();
-            $table->string('code', 255)->nullable();
-            $table->float('discount', 10, 2)->nullable();
-            $table->string('expiry', 255)->nullable();
-            $table->timestamps();
+            $table->bigIncrements('id'); // Auto-incrementing big integer as primary key
+            $table->unsignedBigInteger('user_id')->nullable(); // Foreign key (to users table), nullable
+            $table->string('code', 255)->nullable(); // Code, varchar(255), nullable
+            $table->float('discount', )->nullable(); // Discount, float(10,2), nullable
+            $table->string('expiry', 255)->nullable(); // Expiry date, varchar(255), nullable
+            $table->integer('status')->nullable(); // Status, integer, nullable
+            $table->timestamps(); // Adds created_at and updated_at columns with CURRENT_TIMESTAMP default
         });
     }
 

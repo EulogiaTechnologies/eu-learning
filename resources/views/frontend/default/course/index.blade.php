@@ -36,8 +36,8 @@
                                                         fill="url(#paint0_linear_221_2436)" />
                                                     <defs>
                                                         <linearGradient id="paint0_linear_221_2436" x1="0.416687" y1="0.416992" x2="13.5833" y2="13.5836" gradientUnits="userSpaceOnUse">
-                                                            <stop stop-color="#2F57EF" />
-                                                            <stop offset="0.9375" stop-color="#C464FD" />
+                                                            <stop stop-color="#62cb79" />
+                                                            <stop offset="0.9375" stop-color="#00907f" />
                                                         </linearGradient>
                                                     </defs>
                                                 </svg>

@@ -12,6 +12,10 @@ use App\Http\Controllers\instructor\LessonController;
 use App\Http\Controllers\instructor\MyProfileController;
 use App\Http\Controllers\instructor\PayoutController;
 use App\Http\Controllers\instructor\PayoutSettingsController;
+use App\Http\Controllers\instructor\Program\ProgramController;
+use App\Http\Controllers\instructor\ProgramLiveClassController;
+use App\Http\Controllers\instructor\ProgramModuleController;
+use App\Http\Controllers\instructor\ProgramResourceController;
 use App\Http\Controllers\instructor\QuestionController;
 use App\Http\Controllers\instructor\QuizController;
 use App\Http\Controllers\instructor\SalesReportController;
@@ -159,6 +163,48 @@ Route::name('instructor.')->prefix('instructor')->middleware(['instructor'])->gr
         Route::get('bootcamp/resource/download/{id}', 'download')->name('bootcamp.resource.download');
     });
 
+  // pregramme
+Route::controller(ProgramController::class)->group(function () {
+    Route::get('programs/', 'index')->name('programs');
+    Route::get('program/create', 'create')->name('program.create');
+    Route::get('program/edit/{id}', 'edit')->name('program.edit');
+    Route::post('program/store', 'store')->name('program.store');
+    Route::get('program/delete/{id}', 'delete')->name('program.delete');
+    Route::post('program/update/{id}', 'update')->name('program.update');
+    Route::get('program/status/{id}', 'status')->name('program.status');
+    Route::get('program/duplicate/{id}', 'duplicate')->name('program.duplicate');
+    Route::get('program/purchase/history/', 'purchase_history')->name('program.purchase.history');
+    Route::get('program/purchase/invoice/{id}', 'invoice')->name('program.purchase.invoice');
+});
+
+// program module
+Route::controller(ProgramModuleController::class)->group(function () {
+    Route::post('program/module/store', 'store')->name('program.module.store');
+    Route::get('program/module/delete/{id}', 'delete')->name('program.module.delete');
+    Route::post('program/module/update/{id}', 'update')->name('program.module.update');
+    Route::get('program/module/sort', 'sort')->name('program.module.sort');
+});
+
+// program live class
+Route::controller(ProgramLiveClassController::class)->group(function () {
+    Route::post('program/live-class/store', 'store')->name('program.live.class.store');
+    Route::get('program/live-class/delete/{id}', 'delete')->name('program.live.class.delete');
+    Route::post('program/live-class/update/{id}', 'update')->name('program.live.class.update');
+    Route::get('program/live-class/sort', 'sort')->name('program.live.class.sort');
+
+    Route::get('program/live/class/join/{topic}', 'join_class')->name('program.live.class.join');
+    Route::get('program/live/class/end/{id}', 'stop_class')->name('program.class.end');
+    Route::get('update/on/class/end/', 'update_on_end_class')->name('update.on.end.class');
+});
+
+// program resource
+Route::controller(ProgramResourceController::class)->group(function () {
+    Route::post('program/resource/store', 'store')->name('program.resource.store');
+    Route::get('program/resource/delete/{id}', 'delete')->name('program.resource.delete');
+    Route::get('program/resource/download/{id}', 'download')->name('program.resource.download');
+});
+
+    
     // team training
     Route::controller(TeamTrainingController::class)->group(function () {
         Route::get('team-packages', 'index')->name('team.packages');
