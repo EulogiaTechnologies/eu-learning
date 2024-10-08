@@ -9,12 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('wishlists', function (Blueprint $table) {
-            $table->id(); // Creates an auto-incrementing bigint primary key
-            $table->unsignedBigInteger('user_id')->nullable(); // User ID
-            $table->longText('course_id')->nullable(); // Course ID (consider changing to a suitable type)
+        Schema::create('watch_durations', function (Blueprint $table) {
+            $table->id(); // This creates an auto-incrementing bigint primary key
             $table->timestamps(); // Creates created_at and updated_at columns
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('wishlists');
+        Schema::dropIfExists('watch_durations');
     }
 };

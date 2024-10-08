@@ -48,8 +48,6 @@ class SettingsTableSeeder extends Seeder
             [36, 'fb_app_secret', 'fb-app-secret', '2023-10-29 05:36:40', '2023-10-29 05:36:40'],
             [37, 'fb_social_login', '0', '2023-10-29 05:36:40', '2023-10-29 05:36:40'],
             [38, 'drip_content_settings', '{\"lesson_completion_role\":\"duration\",\"minimum_duration\":\"15:30:00\",\"minimum_percentage\":\"80\"}', '2023-10-29 05:36:40', '2023-10-29 05:36:40'],
-            [39, 'study_plan', '[]', '2023-10-29 05:36:40', '2023-10-29 05:36:40'],
-            [40, 'setting_category', '[{\"name\":\"General\",\"icon\":\"settings\",\"slug\":\"general\"},{\"name\":\"Instructor\",\"icon\":\"school\",\"slug\":\"instructor\"},{\"name\":\"Payment\",\"icon\":\"monetization_on\",\"slug\":\"payment\"},{\"name\":\"Smtp\",\"icon\":\"email\",\"slug\":\"smtp\"},{\"name\":\"API\",\"icon\":\"api\",\"slug\":\"api\"},{\"name\":\"Social\",\"icon\":\"social\",\"slug\":\"social\"},{\"name\":\"Drip Content\",\"icon\":\"drip\",\"slug\":\"drip\"}]', '2023-10-29 05:36:40', '2023-10-29 05:36:40'],
         ];
 
         foreach ($settings as $setting) {

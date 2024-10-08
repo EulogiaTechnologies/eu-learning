@@ -18,6 +18,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call(BuilderPagesSeeder::class);
+         $this->call(BuilderPagesSeeder::class);
+        $this->call(FrontendSettingsSeeder::class);
+        $this->call(LanguagesTableSeeder::class);
+        $this->call(CurrencySeeder::class);
+         $this->call(HomePageSettingsSeeder::class);
+         $this->call(AdminsTableSeeder::class);
+      
     }
 }

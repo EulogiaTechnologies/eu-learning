@@ -23,7 +23,17 @@ class BuilderPagesSeeder extends Seeder
             ['id' => 17, 'name' => 'Development', 'html' => null, 'identifier' => 'development', 'is_permanent' => 1, 'status' => 0, 'edit_home_id' => 1, 'created_at' => '2024-08-27 04:25:11', 'updated_at' => '2024-09-11 22:38:57'],
             ['id' => 18, 'name' => 'Marketplace', 'html' => null, 'identifier' => 'marketplace', 'is_permanent' => 1, 'status' => 0, 'edit_home_id' => 1, 'created_at' => '2024-08-27 04:25:11', 'updated_at' => '2024-09-11 22:38:57'],
             ['id' => 19, 'name' => 'Meditation', 'html' => null, 'identifier' => 'meditation', 'is_permanent' => 1, 'status' => 0, 'edit_home_id' => 1, 'created_at' => '2024-08-27 04:25:11', 'updated_at' => '2024-09-11 22:38:57'],
-            ['id' => 23, 'name' => 'Default', 'html' => '[\"top_bar\",\"header\",\"hero_banner\",\"features\",\"category\",\"featured_courses\",\"testimonial\",\"about_us\",\"blog\",\"faq\",\"footer\"]', 'identifier' => null, 'is_permanent' => null, 'status' => 1, 'edit_home_id' => null, 'created_at' => '2024-08-27 04:25:11', 'updated_at' => '2024-09-12 03:52:17'],
+            [
+                'id' => 23,
+                'name' => 'Default',
+                'html' => json_encode(["top_bar", "header", "hero_banner", "features", "category", "featured_courses", "testimonial", "about_us", "blog", "faq", "footer"]),
+                'identifier' => null,
+                'is_permanent' => null,
+                'status' => 1,
+                'edit_home_id' => null,
+                'created_at' => '2024-08-27 04:25:11',
+                'updated_at' => '2024-09-12 03:52:17'
+            ],
         ]);
     }
 }
